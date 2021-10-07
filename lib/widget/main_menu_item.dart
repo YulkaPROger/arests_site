@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class MainMenuItem extends StatelessWidget {
   final String text;
   final bool isActive;
-  final VoidCallback? press;
+  final VoidCallback press;
   const MainMenuItem({
       Key? key,
         required this.text, required this.isActive, required this.press}) : super(key: key);
