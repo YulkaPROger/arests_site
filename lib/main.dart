@@ -1,4 +1,7 @@
+import 'package:arests_site/screen/main_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,30 +13,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Arests site',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kScaffoldColor,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: TextButton.styleFrom(backgroundColor: kPrimaryColor)
+        ),
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: kDarkTextColor),
+          bodyText2: TextStyle(color: kPrimaryTextColor),
+          headline5: TextStyle(color: kPrimaryTextColor),
+        ),
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: MainScreen(),
     );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-          color: Colors.amber,
-    ));
   }
 }
 
