@@ -1,3 +1,4 @@
+import 'package:arests_site/constants.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,7 +16,7 @@ class MainMenuItem extends StatelessWidget {
       onTap: press,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-        padding: EdgeInsets.all(kDefaultPadding/2),
+        padding: EdgeInsets.symmetric(horizontal: kDefaultPadding/2 ),
         decoration: BoxDecoration(
             border: Border(
                 bottom: BorderSide(
