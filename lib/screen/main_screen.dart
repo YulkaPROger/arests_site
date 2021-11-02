@@ -1,10 +1,13 @@
 import 'package:arests_site/constants.dart';
+import 'package:arests_site/screen/for_partners.dart';
 import 'package:arests_site/widget/main_chapters.dart';
 import 'package:arests_site/widget/top_row.dart';
+import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({Key? key,}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,10 @@ class MainScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     MainChapters(
-                      press: (){},
+                      press: (){
+                        context.beamToNamed('/partners');
+
+                      },
                       text: 'Партнерам',
                       bottomText: 'Технологии будущего для Вашего бизнеса',
                       image: 'assets/images/businessmen-closing-deal-with-handshake.jpg',

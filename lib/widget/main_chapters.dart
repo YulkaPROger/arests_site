@@ -29,6 +29,7 @@ class _MainChaptersState extends State<MainChapters> with SingleTickerProviderSt
     controller = AnimationController(vsync: this, duration: duration, lowerBound: 0.6, upperBound: 1.0);
     animation =
         CurvedAnimation(parent: controller, curve: Curves.easeInOutBack);
+
   }
 
   @override
