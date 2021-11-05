@@ -10,3 +10,6 @@ const kDarkTextColor = Colors.black;
 const kDefaultPadding = 20.0;
 const kMaxWidth = 1232.0;
 const kDefaultDuration = Duration(milliseconds: 250);
+
+
+const TextStyle bigGreyText = TextStyle(color: Colors.grey, fontSize: 16);

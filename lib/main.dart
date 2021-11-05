@@ -1,3 +1,4 @@
+import 'package:arests_site/widget/top_row.dart';
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 
@@ -5,20 +6,39 @@ import 'beam_locations.dart';
 import 'constants.dart';
 
 void main() {
-  runApp( MyApp());
+  Beamer.setPathUrlStrategy();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
   final routerDelegate = BeamerDelegate(
-    locationBuilder: (state) {
-      if (state.uri.pathSegments.contains('books')) {
-        return HomeLocation(state);
-      }
-      return HomeLocation(state);
-    },
+    initialPath: '/home',
+    locationBuilder: SimpleLocationBuilder(
+      routes: {
+        '*': (context, state) {
+          final beamerKey = GlobalKey<BeamerState>();
+          return Scaffold(
+            appBar: CustomAppBar(beamerKey: beamerKey),
+            body: Beamer(
+              key: beamerKey,
+              routerDelegate: BeamerDelegate(
+                locationBuilder: BeamerLocationBuilder(
+                  beamLocations: [
+                    HomeLocation(state),
+                    PartnersLocation(state),
+                    DebtorsLocation(state),
+                    AboutCompanyLocation(state),
+                    ContactsLocation(state)
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+      },
+    ),
   );
-
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +46,7 @@ class MyApp extends StatelessWidget {
       routerDelegate: routerDelegate,
       routeInformationParser: BeamerParser(),
       backButtonDispatcher:
-      BeamerBackButtonDispatcher(delegate: routerDelegate),
+          BeamerBackButtonDispatcher(delegate: routerDelegate),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: kPrimaryColor,
@@ -38,9 +58,15 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(color: kPrimaryTextColor),
           headline5: TextStyle(color: kPrimaryTextColor),
         ),
-        primarySwatch: Colors.blue,
-      ),
+        checkboxTheme: Theme.of(context).checkboxTheme.copyWith(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
 
+              ),
+            ),
+        primarySwatch: Colors.green,
+          unselectedWidgetColor: Colors.black12
+      ),
     );
   }
 }

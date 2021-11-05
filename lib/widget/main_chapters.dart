@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MainChapters extends StatefulWidget {
   const MainChapters({
@@ -15,8 +16,6 @@ class MainChapters extends StatefulWidget {
 
 class _MainChaptersState extends State<MainChapters> with SingleTickerProviderStateMixin {
 
-  static const Color beginColor = Colors.deepPurple;
-  static const Color endColor = Colors.deepOrange;
   Duration duration = const Duration(milliseconds: 500);
   late AnimationController controller;
   late Animation<double> animation;
@@ -25,10 +24,8 @@ class _MainChaptersState extends State<MainChapters> with SingleTickerProviderSt
   @override
   void initState() {
     super.initState();
-
-    controller = AnimationController(vsync: this, duration: duration, lowerBound: 0.6, upperBound: 1.0);
-    animation =
-        CurvedAnimation(parent: controller, curve: Curves.easeInOutBack);
+    controller = AnimationController(vsync: this, duration: duration);
+    animation = Tween<double>(begin: 1, end: 1.1).animate(controller);
 
   }
 
@@ -42,39 +39,44 @@ class _MainChaptersState extends State<MainChapters> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
 
-    return Flexible(
+    return Expanded(
       child: InkWell(
         onTap: widget.press,
         focusColor: Colors.transparent,
         hoverColor: Colors.transparent,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text(widget.text, style: TextStyle(fontSize: 32, color: Colors.black),),
-            MouseRegion(
-              onEnter: (event){
-                print(event);
-                controller.forward();
-              },
-              onExit: (event){
-                controller.reverse();
-              },
-              child: ScaleTransition(
-                scale: animation,
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 50),
-                  child: CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    backgroundImage: AssetImage(widget.image),
-                    radius: MediaQuery.of(context).size.height/4  ,
+        child: Card(
+          margin: EdgeInsets.symmetric(horizontal: 16),
+          elevation: 5,
+          child: Container(
+            padding: EdgeInsets.all(8),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(widget.text, style: TextStyle(fontSize: 24, color: Colors.black,), textAlign: TextAlign.start,),
+                Expanded(
+                  child: MouseRegion(
+                    onEnter: (event){
+                      print(event);
+                      controller.forward();
+                    },
+                    onExit: (event){
+                      controller.reverse();
+                    },
+                    child: ScaleTransition(
+                      scale: animation,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 50),
+                        child: ClipOval(child: Image.asset(widget.image)),
+
+                      ),
+                    ),
+
                   ),
                 ),
-              ),
-
+                Text(widget.bottomText, style: TextStyle(fontSize: 16, color: Colors.black),),
+              ],
             ),
-            Text(widget.bottomText, style: TextStyle(fontSize: 16, color: Colors.black),),
-          ],
+          ),
         ),
       ),
     );
