@@ -23,7 +23,6 @@ class _FormSendingState extends State<FormSending> {
     return Center(
       child: Card(
         child: Container(
-          height: MediaQuery.of(context).size.height / 2,
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(16),
           child: Column(

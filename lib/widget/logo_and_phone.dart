@@ -1,4 +1,5 @@
 import 'package:arests_site/constants.dart';
+import 'package:arests_site/constants_style.dart';
 import 'package:arests_site/string_const.dart';
 import 'package:flutter/material.dart';
 
@@ -16,16 +17,15 @@ class LogoAndPhone extends StatelessWidget {
           child: Row(
             children: [
               Image.asset(
-                'assets/images/404.jpg',
+                'assets/images/logo2.png',
                 height: 100,
               ),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   nameOfCompany,
-                  style: TextStyle(
-                      color: kDarkTextColor, fontWeight: FontWeight.bold),
-                ),
+                  style: bigText),
+
               ),
               const Spacer(),
               RichText(

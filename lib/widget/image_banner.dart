@@ -1,17 +1,25 @@
+import 'package:arests_site/constants_style.dart';
 import 'package:arests_site/extentions.dart';
-import 'package:arests_site/string_const.dart';
 import 'package:flutter/material.dart';
+
+import '../string_const.dart';
 
 class ImageBanner extends StatelessWidget {
   const ImageBanner({
     Key? key,
+    required this.image,
+    required this.path,
+    required this.header,
+    required this.text,
   }) : super(key: key);
+
+  final String image, path, header, text;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height/2,
+      height: MediaQuery.of(context).size.height / 2,
       child: Stack(
         alignment: AlignmentDirectional.topCenter,
         children: [
@@ -23,21 +31,22 @@ class ImageBanner extends StatelessWidget {
                     MediaQuery.of(context).size.width / 2,
                     75,
                   )),
-              child: Image.asset('assets/images/modern-tech-background.jpg',
-              fit: BoxFit.fitWidth,
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height/2,)
-          ),
+              child: Image.asset(
+                image,
+                fit: BoxFit.fitWidth,
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height / 2,
+              )),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                   style: TextStyle(color: Colors.white, fontSize: 16),
                   children: [
-                    TextSpan(text: 'АБК '),
+                    TextSpan(text: nameCompany),
                     WidgetSpan(
                       alignment: PlaceholderAlignment.middle,
                       child: Icon(
@@ -46,7 +55,7 @@ class ImageBanner extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    TextSpan(text: ' Партнерам')
+                    TextSpan(text: path)
                   ],
                 )),
                 const Divider(
@@ -54,17 +63,17 @@ class ImageBanner extends StatelessWidget {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
-                      forPartnersHeader,
-                      style: TextStyle(color: Colors.white, fontSize: 45),
+                      header,
+                      style: bigWhiteText,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Text(
-                      forPartnersMainText,
-                      style: TextStyle(color: Colors.white, fontSize: 22),
+                      text,
+                      style:  mediumWhiteText,
                     ),
                   ],
                 ).withHalfConstrained(),

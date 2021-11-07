@@ -6,6 +6,8 @@ import 'package:arests_site/widget/logo_and_phone.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../string_const.dart';
+
 class ForPartners extends StatelessWidget {
   const ForPartners({Key? key}) : super(key: key);
 
@@ -16,7 +18,12 @@ class ForPartners extends StatelessWidget {
         child: ListView(
           children: const [
             LogoAndPhone(),
-            ImageBanner(),
+            ImageBanner(
+              image: 'assets/images/modern-tech-background.jpg',
+              path: ' Партнерам',
+              header: forPartnersHeader,
+              text: forPartnersMainText,
+            ),
             IconGrig(),
             FormSending(),
             Center(child: BottomCopyrightAndPrivacyPolicy()),
