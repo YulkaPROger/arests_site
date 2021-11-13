@@ -1,5 +1,4 @@
 import 'package:arests_site/constants.dart';
-import 'package:arests_site/constants_style.dart';
 import 'package:arests_site/string_const.dart';
 import 'package:flutter/material.dart';
 
@@ -16,19 +15,23 @@ class LogoAndPhone extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: kMaxWidth),
           child: Row(
             children: [
-              Image.asset(
-                'assets/images/logo2.png',
-                height: 100,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  'assets/images/logo_time.png',
+                  height: 100,
+                ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  nameOfCompany,
-                  style: bigText),
-
-              ),
+              // const Padding(
+              //   padding: EdgeInsets.all(8.0),
+              //   child: Text(
+              //     nameOfCompany,
+              //     style: bigText),
+              //
+              // ),
               const Spacer(),
               RichText(
+                textAlign: TextAlign.end,
                 text: const TextSpan(
                   children: <TextSpan>[
                     TextSpan(
@@ -36,7 +39,7 @@ class LogoAndPhone extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     TextSpan(
                         text: phoneCompany,
-                        style: TextStyle(fontWeight: FontWeight.normal)),
+                        style: TextStyle(fontWeight: FontWeight.normal,)),
                   ],
                 ),
               )

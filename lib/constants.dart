@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-const kPrimaryColor = Colors.green;
+Color kPrimaryColor = Colors.indigo.shade900;
 var kScaffoldColor = Colors.blueGrey.shade50;
 
-const kPrimaryTextColor = Colors.green;
+Color kPrimaryTextColor = Colors.indigo.shade900;
 var kBaseTextColor = Colors.grey.shade700;
 const kDarkTextColor = Colors.black;
 

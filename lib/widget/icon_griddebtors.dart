@@ -5,9 +5,10 @@ import 'package:flutter/rendering.dart';
 
 import '../string_const.dart';
 import 'animated_icon.dart';
+import 'animated_icon_debtors.dart';
 
-class IconGrig extends StatelessWidget {
-  const IconGrig({
+class IconDebtors extends StatelessWidget {
+  const IconDebtors({
     Key? key,
   }) : super(key: key);
 
@@ -24,39 +25,39 @@ class IconGrig extends StatelessWidget {
           mainAxisSpacing: 10,
           crossAxisCount: 5,
           children: <Widget>[
-            AnimatedItemGrid(
-              nameOfPart: audit,
-              picture: 'assets/images/audit.jpeg',
+            AnimatedItemDebtors(
+              nameOfPart: findOutAboutYourDebts,
+              picture: 'assets/images/about_your_debts.png',
               callback: (){},
             ),
-            AnimatedItemGrid(
-              nameOfPart: debtCollection,
-              picture: 'assets/images/debt_collection.jpeg',
+            AnimatedItemDebtors(
+              nameOfPart: payDebts,
+              picture: 'assets/images/pay_debts.png',
               callback: (){},
             ),
-            AnimatedItemGrid(
-              nameOfPart: executionCourtDecision,
-              picture: 'assets/images/execution_court_decision.jpeg',
+            AnimatedItemDebtors(
+              nameOfPart: getHelpDocuments,
+              picture: 'assets/images/get_help_documents.png',
               callback: (){},
             ),
-            AnimatedItemGrid(
-              nameOfPart: ourWork,
-              picture: 'assets/images/our_work.jpeg',
+            AnimatedItemDebtors(
+              nameOfPart: findAddressStorage,
+              picture: 'assets/images/find_address_storage.png',
               callback: (){},
             ),
-            AnimatedItemGrid(
-              nameOfPart: howOurWorking,
-              picture: 'assets/images/how_our_working.jpeg',
+            AnimatedItemDebtors(
+              nameOfPart: installmentPayment,
+              picture: 'assets/images/installment_payment.png',
               callback: (){},
             ),
-            AnimatedItemGrid(
-              nameOfPart: personalArea,
-              picture: 'assets/images/personal_area.jpg',
+            AnimatedItemDebtors(
+              nameOfPart: howToRemoteArrests,
+              picture: 'assets/images/how_to_remote_arrests.png',
               callback: (){},
             ),
-            AnimatedItemGrid(
-              nameOfPart: becomeAParther,
-              picture: 'assets/images/become_a_parther.jpg',
+            AnimatedItemDebtors(
+              nameOfPart: feedback,
+              picture: 'assets/images/feedback.png',
               callback: (){},
             ),
 

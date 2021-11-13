@@ -8,6 +8,46 @@ class BottomCopyrightAndPrivacyPolicy extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  void _showSimpleDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return SimpleDialog(
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(child: Text(privacyPolicy)),
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: Icon(Icons.close),
+                )
+              ],
+            ),
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.all(12),
+                width: MediaQuery.of(context).size.width * 0.75,
+                height: MediaQuery.of(context).size.height * 0.75,
+                child: const SingleChildScrollView(
+                  child: Text(policyForPersonalData),
+                ),
+              ),
+              SimpleDialogOption(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text(
+                  accept,
+                  style: mediumBigText,
+                ),
+              ),
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +56,21 @@ class BottomCopyrightAndPrivacyPolicy extends StatelessWidget {
         constraints: const BoxConstraints(maxWidth: kMaxWidth),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [Text(copyright, style: mediumText,), Text(privacyPolicy, style: mediumText,)],
+          children: [
+            Text(
+              copyright,
+              style: mediumText,
+            ),
+            TextButton(
+              onPressed: () {
+                _showSimpleDialog(context);
+              },
+              child: Text(
+                privacyPolicy,
+                style: mediumText,
+              ),
+            )
+          ],
         ),
       ),
     );

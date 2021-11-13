@@ -6,12 +6,11 @@ class AnimatedItemGrid extends StatefulWidget {
   const AnimatedItemGrid({
     Key? key,
     required this.nameOfPart,
-    required this.iconData,
+    required this.picture,
     required this.callback,
   }) : super(key: key);
 
-  final String nameOfPart;
-  final IconData iconData;
+  final String nameOfPart, picture;
   final VoidCallback callback;
 
   @override
@@ -36,24 +35,38 @@ class _AnimatedItemGridState extends State<AnimatedItemGrid> {
             _isEnter = false;
           });
         },
-        child: AnimatedContainer(
-            margin: _isEnter ? const EdgeInsets.all(0) : const EdgeInsets.all(15),
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(kMaxWidth / 10)),
-                boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
-                color: Colors.white),
-            padding: const EdgeInsets.all(8),
-            duration: const Duration(milliseconds: 500),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  widget.iconData,
-                  size: kMaxWidth / 10,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            AnimatedContainer(
+              margin:
+                  _isEnter ? const EdgeInsets.all(15) : const EdgeInsets.all(35),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(kMaxWidth / 10)),
+                boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 5)],
+                image: DecorationImage(
+                  image: AssetImage(widget.picture),
                 ),
-                Text(widget.nameOfPart, style: mediumText,)
-              ],
-            )),
+              ),
+              padding: const EdgeInsets.all(8),
+              duration: const Duration(milliseconds: 500),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [],
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Text(
+                widget.nameOfPart,
+                style: mediumText,
+                textAlign: TextAlign.center,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

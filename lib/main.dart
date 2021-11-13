@@ -1,4 +1,4 @@
-import 'package:arests_site/widget/top_row.dart';
+import 'package:arests_site/widget/custom_app_bar.dart';
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: kScaffoldColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: TextButton.styleFrom(backgroundColor: kPrimaryColor)),
-        textTheme: const TextTheme(
+        textTheme: TextTheme(
           bodyText1: TextStyle(color: kDarkTextColor),
           bodyText2: TextStyle(color: kPrimaryTextColor),
           headline5: TextStyle(color: kPrimaryTextColor),
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
 
               ),
             ),
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.teal,
           unselectedWidgetColor: Colors.black12
       ),
     );

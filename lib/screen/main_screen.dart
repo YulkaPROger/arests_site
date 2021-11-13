@@ -4,7 +4,7 @@ import 'package:arests_site/string_const.dart';
 import 'package:arests_site/widget/bottom_privacy_policy_and_copyright.dart';
 import 'package:arests_site/widget/logo_and_phone.dart';
 import 'package:arests_site/widget/main_chapters.dart';
-import 'package:arests_site/widget/top_row.dart';
+import 'package:arests_site/widget/custom_app_bar.dart';
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -58,16 +58,18 @@ class _MainScreenState extends State<MainScreen> {
                           context.beamToNamed('/partners');
                         },
                         text: 'Партнерам',
-                        bottomText: 'Технологии будущего для Вашего бизнеса',
+                        bottomText: 'Предложения для вашего бизнеса',
                         image:
-                            'assets/images/businessmen-closing-deal-with-handshake.jpg',
+                            'assets/images/gor_partners_bg.jpg',
                       ),
                       MainChapters(
-                        press: () {},
+                        press: () {
+                          context.beamToNamed('/debtors');
+                        },
                         text: 'Должникам',
                         bottomText: 'Урегулирование финансовых вопросов',
                         image:
-                            'assets/images/young-woman-checking-her-budget-doing-taxes.jpg',
+                            'assets/images/for_debtors_bg.jpg',
                       ),
                     ],
                   ),

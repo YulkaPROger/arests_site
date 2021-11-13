@@ -13,7 +13,7 @@ class HomeLocation extends BeamLocation<BeamState>{
 
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) => [
-    BeamPage(key: const ValueKey('home'), child: const MainScreen(), title: 'TimeToPay.money', type: BeamPageType.cupertino),
+    BeamPage(key: const ValueKey('/home'), child: const MainScreen(), title: 'TimeToPay.money', type: BeamPageType.cupertino),
   ];
 
   @override
@@ -29,7 +29,7 @@ class PartnersLocation extends BeamLocation<BeamState>{
 
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) =>[
-    BeamPage(key: const ValueKey('home'), child: const MainScreen()),
+    BeamPage(key: const ValueKey('/home'), child: const MainScreen()),
     if (state.uri.pathSegments.contains('partners'))
       BeamPage(
         key: const ValueKey('partners'),
@@ -74,7 +74,7 @@ class AboutCompanyLocation extends BeamLocation<BeamState>{
 
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) =>[
-    BeamPage(key: const ValueKey('home'), child: const MainScreen()),
+    BeamPage(key: const ValueKey('/home'), child: const MainScreen()),
     if (state.uri.pathSegments.contains('about_company'))
       BeamPage(
         key: const ValueKey('about_company'),
@@ -91,7 +91,7 @@ class ContactsLocation extends BeamLocation<BeamState>{
 
   @override
   List<BeamPage> buildPages(BuildContext context, BeamState state) =>[
-    BeamPage(key: const ValueKey('home'), child: const MainScreen()),
+    BeamPage(key: const ValueKey('/home'), child: const MainScreen()),
     if (state.uri.pathSegments.contains('contacts'))
       BeamPage(
         key: const ValueKey('contacts'),

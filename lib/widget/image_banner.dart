@@ -44,10 +44,10 @@ class ImageBanner extends StatelessWidget {
               children: [
                 RichText(
                     text: TextSpan(
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: const TextStyle(color: Colors.white, fontSize: 16),
                   children: [
-                    TextSpan(text: nameCompany),
-                    WidgetSpan(
+                    const TextSpan(text: nameCompany),
+                    const WidgetSpan(
                       alignment: PlaceholderAlignment.middle,
                       child: Icon(
                         Icons.fiber_manual_record,
